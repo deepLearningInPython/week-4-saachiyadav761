@@ -94,7 +94,7 @@ word_frequencies = {word.lower(): tokens.count(word.lower()) for word in tokens 
 def token_counts(string: str, k: int = 1) -> dict:
     # Normalize: strip punctuation and convert to lowercase
     tokens = [word.strip('.,!?;:"\'-').lower() for word in string.split() if word.strip('.,!?;:"\'-')]
-    # Count frequencies (use set to avoid repeated work)
+    # Count frequencies - (use set to avoid repeated work)
     token_freq = {word: tokens.count(word) for word in set(tokens)}
     # Return tokens whose frequency is >= k (tests expect inclusive threshold)
     return {word: count for word, count in token_freq.items() if count >= k}
